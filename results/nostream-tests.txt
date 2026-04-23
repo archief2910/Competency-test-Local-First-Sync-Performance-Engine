@@ -1,0 +1,1524 @@
+﻿================================================================================
+ SoB 2026 - Nostream - Project 1 competency test
+ Evidence: nostream upstream unit test suite (repository root, not the PoC)
+================================================================================
+ captured     : 2026-04-22 03:19:33 +05:30
+ host         : LAPTOP-TD06F4CQ
+ os           : Microsoft Windows NT 10.0.26100.0
+ node         : v22.16.0
+ npm          : 10.9.2
+ command      : npx mocha 'test/**/*.spec.ts'
+ package      : nostream@2.1.1  (https://github.com/cameri/nostream)
+ branch       : main
+ commit       : 32a1ec5b6a64c082a171d1c787c3c551810a71ca
+ result       : 1037 passing (3s)  --  full test output follows
+================================================================================
+
+
+
+  RedisAdapter
+    constructor
+      ΓêÜ calls client.connect()
+      ΓêÜ registers event listeners for connect, ready, error, and reconnecting
+    constructor error handling
+      ΓêÜ handles connection rejection without throwing
+{"level":50,"time":1776808141415,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:redis-adapter","err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\redis-adapter.spec.ts:69:41)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to connect to Redis. Error: connection refused\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\redis-adapter.spec.ts:69:41)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+    hasKey
+      ΓêÜ awaits connection and calls client.exists with the key
+      ΓêÜ returns false when key does not exist
+    getKey
+      ΓêÜ awaits connection and calls client.get with the key
+      ΓêÜ returns null when key does not exist
+    setKey
+      ΓêÜ returns true when client.set returns OK
+      ΓêÜ returns false when client.set does not return OK
+    removeRangeByScoreFromSortedSet
+      ΓêÜ calls client.zRemRangeByScore with correct arguments
+    getRangeFromSortedSet
+      ΓêÜ calls client.zRange with correct arguments
+      ΓêÜ returns empty array when set is empty
+    setKeyExpiry
+      ΓêÜ calls client.expire with correct arguments
+    addToSortedSet
+      ΓêÜ transforms record entries to score/value members and calls client.zAdd
+      ΓêÜ handles a single entry
+    deleteKey
+      ΓêÜ calls client.del with the key and returns the result
+    getHKey
+      ΓêÜ calls client.hGet with key and field and returns the value
+      ΓêÜ returns empty string when field does not exist
+    setHKey
+      ΓêÜ calls client.hSet with key and fields and returns true
+    eval
+      ΓêÜ loads script on first call and uses evalSha
+      ΓêÜ reuses cached SHA on subsequent calls
+
+  WebServerAdapter
+    constructor
+      ΓêÜ registers error event listener on webServer
+      ΓêÜ registers clientError event listener on webServer
+      ΓêÜ registers close event listener on webServer
+      ΓêÜ registers listening event listener on webServer
+    listen
+      ΓêÜ calls webServer.listen with the given port
+    close
+      ΓêÜ calls webServer.close
+      ΓêÜ invokes callback after close completes
+      ΓêÜ removes all listeners from webServer after close
+      ΓêÜ does not throw if callback is undefined
+    onClientError
+      ΓêÜ ignores ECONNRESET errors
+      ΓêÜ ignores errors when socket is not writable
+{"level":50,"time":1776808141489,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-server-adapter","err":{"type":"Error","message":"bad request","stack":"Error: bad request\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:126:21)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"web-server-adapter: client socket error: Error: bad request\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:126:21)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ sends 400 response for other client errors
+    onError
+{"level":50,"time":1776808141495,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-server-adapter","err":{"type":"Error","message":"server error","stack":"Error: server error\n    at C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:144:28\n    at Proxy.assertThrows (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\core\\assertions.js:2644:7)\n    at Proxy.methodWrapper (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\utils\\addMethod.js:57:25)\n    at doAsserterAsyncAndAddThen (C:\\Users\\manoj\\nostream\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:289:22)\n    at Proxy.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:255:20)\n    at Proxy.overwritingMethodWrapper (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\utils\\overwriteMethod.js:78:33)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:144:68)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"web-server-adapter: error: Error: server error\n    at C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:144:28\n    at Proxy.assertThrows (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\core\\assertions.js:2644:7)\n    at Proxy.methodWrapper (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\utils\\addMethod.js:57:25)\n    at doAsserterAsyncAndAddThen (C:\\Users\\manoj\\nostream\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:289:22)\n    at Proxy.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\chai-as-promised\\lib\\chai-as-promised.js:255:20)\n    at Proxy.overwritingMethodWrapper (C:\\Users\\manoj\\nostream\\node_modules\\chai\\lib\\chai\\utils\\overwriteMethod.js:78:33)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-server-adapter.spec.ts:144:68)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ handles server errors without throwing
+
+  WebSocketAdapter
+    constructor
+      ΓêÜ extracts clientId from sec-websocket-key header
+      ΓêÜ resolves client address from request
+      ΓêÜ registers WebSocket event listeners
+      ΓêÜ registers internal event listeners
+    getClientId
+      ΓêÜ returns the client ID
+    getClientAddress
+      ΓêÜ returns the client IP address
+    getSubscriptions
+      ΓêÜ returns an empty map when no subscriptions
+      ΓêÜ returns a copy of subscriptions map
+    onSubscribed
+      ΓêÜ adds subscription to the map
+      ΓêÜ overwrites existing subscription with same id
+    onUnsubscribed
+      ΓêÜ removes subscription from the map
+      ΓêÜ does not throw when removing non-existent subscription
+    onBroadcast
+      ΓêÜ emits broadcast event on the WebSocket server adapter
+    onHeartbeat
+      ΓêÜ pings the client and sets alive to false
+{"level":50,"time":1776808141532,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-socket-adapter","msg":"web-socket-adapter: pong timeout for client 746573742d6b65792d313233 (127.0.0.1)"}
+      ΓêÜ closes connection when client is not alive and has no subscriptions
+      ΓêÜ does not close when client is not alive but has subscriptions
+    sendMessage (via Message event)
+      ΓêÜ sends JSON-serialized message when WebSocket is OPEN
+      ΓêÜ does nothing when WebSocket is not OPEN
+    onSendEvent (via Event event)
+      ΓêÜ sends event matching subscription filters
+      ΓêÜ does not send event not matching any filter
+    onClientClose
+      ΓêÜ clears all subscriptions when client disconnects
+      ΓêÜ removes all listeners from client
+    onClientPong
+      ΓêÜ marks client as alive
+    onClientPing
+      ΓêÜ responds with pong
+    error handling
+{"level":50,"time":1776808141555,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-socket-adapter","msg":"web-socket-adapter: client 746573742d6b65792d313233 (127.0.0.1) sent payload too large"}
+      ΓêÜ closes client on RangeError with max payload exceeded
+      ΓêÜ closes client on RSV1 compression error
+{"level":50,"time":1776808141560,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-socket-adapter","err":{"type":"Error","message":"something went wrong","stack":"Error: something went wrong\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-socket-adapter.spec.ts:373:21)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"web-socket-adapter: client error 746573742d6b65792d313233 (127.0.0.1): Error: something went wrong\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\adapters\\web-socket-adapter.spec.ts:373:21)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ closes client on generic errors
+    onClientMessage
+      ΓêÜ handles invalid JSON gracefully
+      ΓêÜ sends rate-limited notice when rate limited
+      ΓêÜ does not rate limit when no rateLimits are configured
+      ΓêÜ does not rate limit when client IP is whitelisted
+      ΓêÜ sets alive to true when message is received
+{"level":50,"time":1776808141574,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-socket-adapter","msg":"web-socket-adapter: abort from client 746573742d6b65792d313233 (127.0.0.1)"}
+      ΓêÜ handles AbortError without sending notice
+{"level":50,"time":1776808141579,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:web-socket-adapter","msg":"web-socket-adapter: unhandled message: no handler found: [\n  'REQ',\n  'sub-1',\n  {},\n  [Symbol(Context)]: {\n    remoteAddress: SocketAddress { address: '127.0.0.1', port: 0, family: 'ipv4', flowlabel: 0 }\n  }\n]"}
+      ΓêÜ returns early when no handler is found for message
+    onSendEvent edge cases
+      ΓêÜ sends event to multiple matching subscriptions
+      ΓêÜ does not send when socket is not OPEN
+    getSubscriptions edge cases
+      ΓêÜ returns a copy that does not affect internal state
+    IPv6 support
+      ΓêÜ handles IPv6 client address
+
+  WebSocketServerAdapter
+    constructor
+      ΓêÜ registers broadcast event listener on itself
+      ΓêÜ registers connection event listener on webSocketServer
+      ΓêÜ registers error event listener on webSocketServer
+    getConnectedClients
+      ΓêÜ returns 0 when no clients are connected
+      ΓêÜ counts only clients with OPEN readyState
+    close
+      ΓêÜ calls parent close which closes webServer
+      ΓêÜ terminates all connected WebSocket clients
+      ΓêÜ closes the webSocketServer after terminating clients
+      ΓêÜ invokes callback after full close
+      ΓêÜ removes all listeners from webSocketServer after close
+    onBroadcast
+      ΓêÜ emits event to adapters of all OPEN clients
+      ΓêÜ skips clients that are not in OPEN state
+    onHeartbeat
+      ΓêÜ emits heartbeat to connected adapters on the heartbeat interval
+    onConnection
+      ΓêÜ creates a WebSocketAdapter for new connection
+      ΓêÜ terminates rate-limited connections
+
+  MaintenanceWorker
+    constructor
+      ΓêÜ registers SIGINT, SIGHUP, and SIGTERM handlers
+      ΓêÜ registers uncaughtException and unhandledRejection handlers
+    run
+      ΓêÜ sets up a 60-second interval that triggers onSchedule
+    applyReverificationOutcome
+      ΓêÜ marks verified on a successful outcome and resets failureCount
+      ΓêÜ flips to unverified and nulls lastVerifiedAt on definitive mismatch
+      ΓêÜ flips to unverified and nulls lastVerifiedAt on malformed response
+      ΓêÜ preserves lastVerifiedAt/isVerified on transient errors
+    processNip05Reverifications
+      ΓêÜ returns early when nip05 settings are undefined
+      ΓêÜ returns early when mode is disabled
+      ΓêÜ does nothing when no pending verifications
+      ΓêÜ re-verifies and updates successful verifications
+      ΓêÜ increments failure count and nulls lastVerifiedAt on definitive mismatch
+      ΓêÜ preserves prior verification on transient network errors
+      ΓêÜ handles individual verification errors gracefully
+      ΓêÜ uses configured updateFrequency and maxFailures
+      ΓêÜ uses defaults when settings values are undefined
+      ΓêÜ processes in passive mode
+    onSchedule
+      ΓêÜ calls maintenance service and processes invoices
+      ΓêÜ calls maintenance service even if payments are disabled
+      ΓêÜ skips an invoice when the processor returns no id
+      ΓêÜ skips an invoice when the processor returns no status
+      ΓêÜ updates invoice status when id and status are valid
+      ΓêÜ does not confirm when status changes but is not COMPLETED
+      ΓêÜ does not confirm when status is COMPLETED but confirmedAt is missing
+      ΓêÜ confirms and notifies when status changes to COMPLETED with confirmedAt
+{"level":50,"time":1776808141698,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:maintenance-worker","err":{"type":"Error","message":"processor error","stack":"Error: processor error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\app\\maintenance-worker.spec.ts:435:32)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to update invoice from payment processor. Reason: Error: processor error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\app\\maintenance-worker.spec.ts:435:32)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ continues processing remaining invoices when one throws
+    onError
+      ΓêÜ re-throws the error received from the process
+    onExit
+      ΓêÜ calls close and then exits the process with code 0
+    close
+      ΓêÜ invokes the callback when one is provided
+      ΓêÜ does not throw when called without a callback
+
+  parseCleanDbOptions
+    ΓêÜ parses --all with --force
+    ΓêÜ parses combined selective filters and deduplicates kinds
+    ΓêÜ parses spaced option values
+    ΓêÜ accepts --help without requiring target filters
+    ΓêÜ throws when no deletion target is provided
+    ΓêÜ throws when --all is combined with selective options
+    ΓêÜ throws on invalid --older-than values
+    ΓêÜ throws on invalid --kinds values
+    ΓêÜ throws on unknown options
+    ΓêÜ rejects options that only share a prefix with supported flags
+
+  LNbitsCallbackController
+    authorization and validation
+      ΓêÜ returns 403 when payment processor settings are missing (48ms)
+      ΓêÜ returns 403 when lnbits is not the configured processor
+      ΓêÜ returns 403 for invalid query parameters
+      ΓêÜ returns 403 when the hmac signature does not match
+      ΓêÜ returns 403 when the hmac expiry is not a safe integer
+      ΓêÜ returns 403 when the hmac has expired
+      ΓêÜ returns 400 for an invalid callback body
+    invoice state handling
+      ΓêÜ returns 404 when invoice is not found in repository
+      ΓêÜ returns 200 without confirmation when processor invoice is still pending
+      ΓêÜ returns 409 when invoice is already marked completed in storage
+      ΓêÜ confirms and notifies when invoice transitions to completed
+    error propagation
+{"level":50,"time":1600000000000,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:lnbits-callback-controller","err":{"type":"Error","message":"database unavailable","stack":"Error: database unavailable\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\lnbits-callback-controller.spec.ts:274:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to persist invoice aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Error: database unavailable\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\lnbits-callback-controller.spec.ts:274:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice update fails
+{"level":50,"time":1600000000000,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:lnbits-callback-controller","err":{"type":"Error","message":"cannot confirm invoice","stack":"Error: cannot confirm invoice\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\lnbits-callback-controller.spec.ts:287:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Error: cannot confirm invoice\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\lnbits-callback-controller.spec.ts:287:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice confirmation fails
+
+  NodelessCallbackController
+    authorization and validation
+      ΓêÜ returns 400 for malformed request body
+{"level":50,"time":1776808141823,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:nodeless-callback-controller","msg":"nodeless callback request rejected: signature mismatch: {\n  expected: '92e648078fb0ca67d905b81f5030aff5e8aab3613e329c16e05103526c080e61',\n  actual: 'invalid-signature'\n}"}
+      ΓêÜ returns 403 when callback signature is invalid
+      ΓêÜ returns 403 when nodeless is not the configured processor
+    invoice state handling
+      ΓêÜ returns 200 without confirmation when invoice is not completed
+      ΓêÜ updates, confirms, and notifies when invoice is completed
+    error propagation
+{"level":50,"time":1776808141837,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:nodeless-callback-controller","err":{"type":"Error","message":"update failed","stack":"Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\nodeless-callback-controller.spec.ts:195:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to persist invoice nodeless-invoice-id Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\nodeless-callback-controller.spec.ts:195:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice persistence fails
+{"level":50,"time":1776808141840,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:nodeless-callback-controller","err":{"type":"Error","message":"confirmation failed","stack":"Error: confirmation failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\nodeless-callback-controller.spec.ts:207:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice nodeless-invoice-id Error: confirmation failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\nodeless-callback-controller.spec.ts:207:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice confirmation fails
+
+  OpenNodeCallbackController
+    authorization and validation
+      ΓêÜ returns 403 when opennode is not the configured processor
+      ΓêÜ returns 400 for malformed request body
+      ΓêÜ returns 400 for unknown status values
+      ΓêÜ returns 500 when OPENNODE_API_KEY is missing
+      ΓêÜ returns 400 for malformed hashed_order
+      ΓêÜ returns 403 for mismatched hashed_order
+    invoice state handling
+      ΓêÜ returns 200 without confirmation for pending invoices
+      ΓêÜ confirms and notifies for completed invoices
+    error propagation
+      ΓêÜ rejects when invoice status update fails
+{"level":50,"time":1776808141878,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:opennode-callback-controller","err":{"type":"Error","message":"update failed","stack":"Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\opennode-callback-controller.spec.ts:257:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to persist invoice opennode-invoice-id Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\opennode-callback-controller.spec.ts:257:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+{"level":50,"time":1776808141882,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:opennode-callback-controller","err":{"type":"Error","message":"confirm failed","stack":"Error: confirm failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\opennode-callback-controller.spec.ts:269:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice opennode-invoice-id Error: confirm failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\opennode-callback-controller.spec.ts:269:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice confirmation fails
+
+  ZebedeeCallbackController
+    authorization and validation
+      ΓêÜ allows request when zebedee whitelist settings are missing
+      ΓêÜ returns 400 for malformed request body
+      ΓêÜ returns 403 when remote IP is not in whitelist
+      ΓêÜ returns 403 when zebedee is not the configured processor
+    invoice state handling
+      ΓêÜ returns 200 without confirmation for pending invoices
+      ΓêÜ confirms and notifies for completed invoices
+    error propagation
+      ΓêÜ rejects when invoice update fails
+{"level":50,"time":1776808141910,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:zebedee-callback-controller","err":{"type":"Error","message":"update failed","stack":"Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\zebedee-callback-controller.spec.ts:206:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to persist invoice zebedee-invoice-id Error: update failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\zebedee-callback-controller.spec.ts:206:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+{"level":50,"time":1776808141914,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:zebedee-callback-controller","err":{"type":"Error","message":"confirm failed","stack":"Error: confirm failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\zebedee-callback-controller.spec.ts:218:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice zebedee-invoice-id Error: confirm failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\callbacks\\zebedee-callback-controller.spec.ts:218:28)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rejects when invoice confirmation fails
+
+  GetInvoiceController
+    when payments are disabled
+      ΓêÜ responds with 404
+      ΓêÜ does not render the template
+    when admission fee is not enabled
+      ΓêÜ responds with 404
+    when payments and admission fee are enabled
+      ΓêÜ loads the get-invoice template
+      ΓêÜ responds with 200 and text/html content type
+      ΓêÜ substitutes all template variables
+      ΓêÜ HTML-escapes the relay name
+      ΓêÜ renders amount in sats (msats / 1000)
+      ΓêÜ safe-serializes processor for inline script
+      ΓêÜ injects the CSP nonce
+
+  PostInvoiceController
+    rate limiting
+{"level":40,"time":1776808141938,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:http-utils","msg":"WARNING: network.remoteIpHeader is set but network.trustedProxies is empty. Forwarded headers will be ignored. Add your proxy IP to network.trustedProxies."}
+      ΓêÜ returns 429 when rate limited
+    request validation
+      ΓêÜ returns 400 for missing body
+      ΓêÜ returns 400 for non-object body
+      ΓêÜ returns 400 when ToS not accepted
+      ΓêÜ returns 400 for non-admission feeSchedule
+      ΓêÜ returns 400 when pubkey is missing
+      ΓêÜ returns 400 for an invalid npub
+      ΓêÜ returns 400 for unknown pubkey format
+    business rule validation
+      ΓêÜ returns 400 when no admission fee is enabled
+      ΓêÜ returns 400 when user is already admitted
+    invoice creation
+{"level":50,"time":1776808141959,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:post-invoice-controller","err":{"type":"Error","message":"payment gateway down","stack":"Error: payment gateway down\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\invoices\\post-invoice-controller.spec.ts:228:45)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to create invoice. Reason: Error: payment gateway down\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\controllers\\invoices\\post-invoice-controller.spec.ts:228:45)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ returns 500 when the payments service throws
+    successful response
+      ΓêÜ responds with 200 and text/html
+      ΓêÜ loads the post-invoice.html template
+      ΓêÜ HTML-escapes the relay name in the output
+      ΓêÜ safe-serializes processor for inline script context
+      ΓêÜ renders amount in sats (msats / 1000)
+      ΓêÜ injects the CSP nonce
+      ΓêÜ leaves no unreplaced template variables in the output
+
+  appFactory
+    ΓêÜ returns an App
+
+  eventStrategyFactory
+    ΓêÜ returns ReplaceableEvent given a set_metadata event
+    ΓêÜ returns ReplaceableEvent given a contact_list event
+    ΓêÜ returns ReplaceableEvent given a replaceable event
+    ΓêÜ returns EphemeralEventStrategy given an ephemeral event
+    ΓêÜ returns DeleteEventStrategy given a delete event
+    ΓêÜ returns VanishEventStrategy given a request to vanish event
+    ΓêÜ returns GiftWrapEventStrategy given a gift wrap event
+    ΓêÜ returns TimestampEventStrategy given an opentimestamps (NIP-03) event
+    ΓêÜ returns ParameterizedReplaceableEventStrategy given a delete event
+    ΓêÜ returns DefaultEventStrategy given a text_note event
+
+  createLogger
+    ΓêÜ enables debug level when requested
+    ΓêÜ logs formatted string messages
+    ΓêÜ logs Error instances under err key
+    ΓêÜ logs structured err when Error is passed as an arg to string message
+    ΓêÜ keeps non-error args in message while logging structured err
+    ΓêÜ logs mixed non-string messages safely
+    ΓêÜ forwards plain objects when no extra args are provided
+    ΓêÜ supports child and extended loggers
+
+  messageHandlerFactory
+    ΓêÜ returns EventMessageHandler when given an EVENT message
+    ΓêÜ returns SubscribeMessageHandler when given a REQ message
+    ΓêÜ returns UnsubscribeMessageHandler when given a REQ message
+    ΓêÜ returns CountMessageHandler when given a COUNT message
+    ΓêÜ throws when given an invalid message
+
+  getSettings
+    ΓêÜ calls createSettings and returns
+
+  webSocketAdapterFactory
+{"level":40,"time":1776808142009,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:http-utils","msg":"WARNING: network.remoteIpHeader is set but network.trustedProxies is empty. Forwarded headers will be ignored. Add your proxy IP to network.trustedProxies."}
+    ΓêÜ returns a WebSocketAdapter
+
+  workerFactory
+    ΓêÜ returns an AppWorker
+
+  CountMessageHandler
+    handleMessage()
+      ΓêÜ returns COUNT with the result when counting works
+      ΓêÜ drops duplicate filters before querying the repository
+      ΓêÜ returns CLOSED when the request has too many filters
+      ΓêÜ returns CLOSED when the query ID is too long
+      ΓêÜ returns CLOSED when counting fails in the repository
+      ΓêÜ returns CLOSED when COUNT is disabled in settings
+
+  EventMessageHandler
+    handleMessage
+      ΓêÜ rejects event if it can't be accepted
+      ΓêÜ rejects event if rate-limited
+      ΓêÜ rejects event if request to vanish is active for pubkey (77ms)
+      ΓêÜ rejects event if invalid
+      ΓêÜ rejects event if user is not admitted
+      ΓêÜ rejects event if it is expired
+      ΓêÜ does not call strategy if none given
+      ΓêÜ calls strategy with event
+{"level":50,"time":1776808142135,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:event-message-handler","err":{"type":"Error","message":"Error","stack":"Error: Error\n    at Object.rejects (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\default-behaviors.js:198:22)\n    at Object.proto.<computed> [as rejects] (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\behavior.js:260:12)\n    at Function.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\behavior.js:250:46)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\handlers\\event-message-handler.spec.ts:222:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"error handling message [\n  'EVENT',\n  {\n    content: 'hello',\n    created_at: 1665546189,\n    id: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',\n    kind: 1,\n    pubkey: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',\n    sig: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',\n    tags: [],\n    [Symbol(Context)]: undefined\n  }\n] Error: Error\n    at Object.rejects (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\default-behaviors.js:198:22)\n    at Object.proto.<computed> [as rejects] (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\behavior.js:260:12)\n    at Function.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\sinon\\lib\\sinon\\behavior.js:250:46)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\handlers\\event-message-handler.spec.ts:222:27)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ does not reject if strategy rejects
+    canAcceptEvent
+      createdAt
+        maxPositiveDelta
+          ΓêÜ returns undefined if maxPositiveDelta is zero
+          ΓêÜ returns reason if createdDate is too far in the future
+        maxNegativeDelta
+          ΓêÜ returns undefined if maxNegativeDelta is zero
+          ΓêÜ returns reason if createdDate is too far in the past
+      content
+        maxLength
+          ΓêÜ returns undefined if maxLength is disabled
+          ΓêÜ returns undefned if content is not too long
+          ΓêÜ returns undefined if kind does not match
+          ΓêÜ returns undefined if kind matches but content is short
+          ΓêÜ returns reason if kind matches but content is too long
+          ΓêÜ returns reason if content is too long
+        maxLength (deprecated)
+          ΓêÜ returns undefined if maxLength is zero
+          ΓêÜ returns undefined if content is short
+          ΓêÜ returns reason if content is too long
+          ΓêÜ returns undefined if kind matches and content is short
+          ΓêÜ returns undefined if kind does not match and content is too long
+          ΓêÜ returns reason if content is too long
+          ΓêÜ returns undefined if content is not set
+        maxNegativeDelta
+          ΓêÜ returns undefined if maxNegativeDelta is zero
+          ΓêÜ returns reason if createdDate is too far in the past
+      eventId
+        minLeadingZeroBits
+          ΓêÜ returns undefined if minLeadingZeroBits is zero
+          ΓêÜ returns undefined if eventId has sufficient proof of work 
+          ΓêÜ returns reason if eventId has insufficient proof of work 
+      pubkey
+        minLeadingZeroBits
+          ΓêÜ returns undefined if minLeadingZeroBits is zero
+          ΓêÜ returns undefined if pubkey has sufficient proof of work 
+          ΓêÜ returns reason if pubkey has insufficient proof of work 
+        blacklist
+          ΓêÜ returns undefined if blacklist is empty
+          ΓêÜ returns undefined if pubkey is not blacklisted
+          ΓêÜ returns undefined if pubkey is not an exact match in the blacklist
+          ΓêÜ returns reason if pubkey is blacklisted
+          ΓêÜ returns undefined if pubkey extends a blacklist entry but is not an exact match
+        whitelist
+          ΓêÜ returns undefined if whitelist is empty
+          ΓêÜ returns undefined if pubkey is whitelisted
+          ΓêÜ returns reason if pubkey is not an exact match in the whitelist
+          ΓêÜ returns reason if pubkey is not whitelisted
+          ΓêÜ returns reason if pubkey is not whitelisted by exact match
+      kind
+        blacklist
+          ΓêÜ returns undefined if blacklist is empty
+          ΓêÜ returns undefined if kind is not blacklisted
+          ΓêÜ returns undefined if kind is not blacklisted in range
+          ΓêÜ returns reason if kind is blacklisted in range
+        whitelist
+          ΓêÜ returns undefined if whitelist is empty
+          ΓêÜ returns undefined if kind is whitelisted
+          ΓêÜ returns undefined if kind is whitelisted in range
+          ΓêÜ returns reason if kind is blacklisted and whitelisted in range
+          ΓêÜ returns reason if kind is blacklisted and whitelisted
+          ΓêÜ returns reason if kind is not whitelisted
+          ΓêÜ returns reason if kind is not whitelisted in range
+    isEventValid
+      ΓêÜ returns undefined if event is valid
+      ΓêÜ returns reason if event id is not valid
+      ΓêÜ returns reason if event signature is not valid
+      NIP-17 inner event blocking
+        ΓêÜ blocks kind 13 (Seal) with a clear rejection message
+        ΓêÜ blocks kind 14 (Direct Message) with a clear rejection message
+        ΓêÜ blocks kind 15 (File Message) with a clear rejection message
+        ΓêÜ does not block a regular kind 1 event
+        ΓêÜ does not block a kind 1059 (Gift Wrap) event
+    isRateLimited
+      ΓêÜ fulfills with false if limits setting is not set
+      ΓêÜ fulfills with false if event limits setting is not set
+      ΓêÜ fulfills with false if rate limits setting is not set
+      ΓêÜ fulfills with false if rate limits setting is empty
+      ΓêÜ skips rate limiter if IP is whitelisted
+      ΓêÜ calls rate limiter if IP is not whitelisted
+      ΓêÜ skips rate limiter if pubkey is whitelisted
+      ΓêÜ calls rate limiter if pubkey is not whitelisted
+      ΓêÜ calls hit with given rate limit settings
+      ΓêÜ fulfills with false if not rate limited
+      ΓêÜ fulfills with true if rate limited by second rate limit setting
+    isUserAdmitted
+      ΓêÜ fulfills with undefined if payments are disabled
+      ΓêÜ fulfills with undefined if event pubkey equals relay's own public key
+      ΓêÜ fulfills with undefined if fee schedules are not set
+      ΓêÜ fulfills with undefined if admission fee schedules are not set
+      ΓêÜ fulfills with undefined if there are no admission fee schedules
+      ΓêÜ fulfills with undefined if there are no enabled admission fee schedules
+      ΓêÜ fulfills with undefined if admission fee schedule is waived for pubkey
+      ΓêÜ fulfills with undefined if admission fee schedule is waived for event kind
+      ΓêÜ fulfills with undefined if admission fee schedule is waived for event kind range
+      ΓêÜ fulfills with reason if admission fee schedule is not waived for event kind range
+      ΓêÜ fulfills with reason if user is not found
+      ΓêÜ fulfills with reason if user is not admitted
+      ΓêÜ fulfills with reason if user is not admitted
+      ΓêÜ fulfills with reason if user does not meet minimum balance
+      ΓêÜ fulfills with undefined if user is admitted
+      caching
+        ΓêÜ fulfills with undefined and uses cache hit for admitted user without hitting DB
+        ΓêÜ fulfills with reason and uses cache hit for blocked user without hitting DB
+        ΓêÜ fulfills with reason and uses cache hit for insufficient balance without hitting DB
+        ΓêÜ caches blocked status with 60s ttl when user is not found
+        ΓêÜ caches insufficient balance status with 60s ttl when user balance is too low
+        ΓêÜ caches admitted status with 300s ttl when user is admitted and has balance
+    checkNip05Verification
+      ΓêÜ returns undefined if nip05 settings are not set
+      ΓêÜ returns undefined if nip05 mode is disabled
+      ΓêÜ returns undefined if nip05 mode is passive
+      ΓêÜ returns undefined for kind 0 events (SET_METADATA)
+      ΓêÜ returns undefined if event pubkey equals relay public key
+      ΓêÜ returns reason if no verification found for pubkey
+      ΓêÜ returns reason if verification exists but has no lastVerifiedAt
+      ΓêÜ treats isVerified=true with null lastVerifiedAt as unverified (historical/bad data)
+      ΓêÜ returns reason if verification is expired
+      ΓêÜ returns undefined if verification is valid and not expired
+      ΓêÜ allows author when lastVerifiedAt is recent even if isVerified is false (transient re-check failure)
+      ΓêÜ returns reason if domain is blacklisted
+      ΓêÜ returns reason if domain is not in whitelist
+      ΓêÜ returns undefined if domain is in whitelist
+    processNip05Metadata
+      ΓêÜ does nothing when nip05 settings are undefined
+      ΓêÜ does nothing when nip05 mode is disabled
+      ΓêÜ does nothing for non-kind-0 events
+      ΓêÜ deletes verification when kind-0 has no nip05 in content
+      ΓêÜ does nothing when nip05 identifier is unparseable
+      ΓêÜ does nothing when domain is not allowed
+      ΓêÜ verifies and upserts on successful verification
+      ΓêÜ upserts with unverified state and nulls lastVerifiedAt on definitive mismatch
+      ΓêÜ increments failureCount from existing row on definitive mismatch
+      ΓêÜ preserves prior isVerified/lastVerifiedAt on transient error
+      ΓêÜ handles verification errors gracefully (thrown by verifier)
+      ΓêÜ works correctly in passive mode
+    checkNip05Verification
+      ΓêÜ returns undefined if nip05 settings are not set
+      ΓêÜ returns undefined if nip05 mode is disabled
+      ΓêÜ returns undefined if nip05 mode is passive
+      ΓêÜ returns undefined for kind 0 events (SET_METADATA)
+      ΓêÜ returns undefined if event pubkey equals relay public key
+      ΓêÜ returns reason if no verification found for pubkey
+      ΓêÜ returns reason if verification exists but has no lastVerifiedAt
+      ΓêÜ treats isVerified=true with null lastVerifiedAt as unverified (historical/bad data)
+      ΓêÜ returns reason if verification is expired
+      ΓêÜ returns undefined if verification is valid and not expired
+      ΓêÜ allows author when lastVerifiedAt is recent even if isVerified is false (transient re-check failure)
+      ΓêÜ returns reason if domain is blacklisted
+      ΓêÜ returns reason if domain is not in whitelist
+      ΓêÜ returns undefined if domain is in whitelist
+    processNip05Metadata
+      ΓêÜ does nothing when nip05 settings are undefined
+      ΓêÜ does nothing when nip05 mode is disabled
+      ΓêÜ does nothing for non-kind-0 events
+      ΓêÜ deletes verification when kind-0 has no nip05 in content
+      ΓêÜ does nothing when nip05 identifier is unparseable
+      ΓêÜ does nothing when domain is not allowed
+      ΓêÜ verifies and upserts on successful verification
+      ΓêÜ upserts with unverified state and nulls lastVerifiedAt on definitive mismatch
+      ΓêÜ increments failureCount from existing row on definitive mismatch
+      ΓêÜ preserves prior isVerified/lastVerifiedAt on transient error
+      ΓêÜ handles verification errors gracefully (thrown by verifier)
+      ΓêÜ works correctly in passive mode
+
+  DefaultEventStrategy
+    execute
+      ΓêÜ creates event
+      ΓêÜ broadcast event if event is created
+      ΓêÜ does not broadcast event if event is duplicate
+      ΓêÜ rejects if unable to create event
+
+  DeleteEventStrategy
+    execute
+      ΓêÜ creates event
+      ΓêÜ deletes events if it has e tags
+      ΓêÜ does not delete events if there are no e tags
+      ΓêÜ broadcast event if created
+      ΓêÜ does not broadcast event if duplicate
+      ΓêÜ rejects if unable to create event
+
+  EphemeralEventStrategy
+    execute
+      ΓêÜ broadcasts event
+
+  GiftWrapEventStrategy
+    execute
+      valid gift wrap
+        ΓêÜ creates the event in the repository
+        ΓêÜ sends OK and broadcasts when the event is new
+        ΓêÜ sends OK with duplicate marker and does not broadcast when event already exists
+      invalid gift wrap ΓÇö p tag
+        ΓêÜ rejects when the p tag is missing
+        ΓêÜ rejects when there are multiple p tags
+        ΓêÜ accepts p tag with an optional relay hint
+      invalid gift wrap ΓÇö content format
+        ΓêÜ rejects when content is empty
+        ΓêÜ rejects when content is plain text instead of a NIP-44 payload
+        ΓêÜ rejects when content signals an unsupported version (#)
+
+  ParameterizedReplaceableEventStrategy
+    execute
+      ΓêÜ upserts event without d tag
+      ΓêÜ upserts event with d tag and one string
+      ΓêÜ upserts event with d tag and two strings
+      ΓêÜ broadcast event if event is created
+      ΓêÜ does not broadcast event if event is duplicate
+      ΓêÜ rejects if unable to upsert event
+
+  ReplaceableEventStrategy
+    execute
+      ΓêÜ upserts event
+      ΓêÜ broadcast event if event is created
+      ΓêÜ does not broadcast event if event is duplicate
+      ΓêÜ rejects if unable to upsert event
+
+  TimestampEventStrategy
+    valid opentimestamps event
+      ΓêÜ stores and broadcasts the event
+      ΓêÜ emits a duplicate OK without broadcasting when the event already exists
+      ΓêÜ accepts an event without a k tag
+    invalid opentimestamps event
+      ΓêÜ rejects when the e tag is missing
+      ΓêÜ rejects when multiple e tags are present
+      ΓêÜ rejects when the e tag value is not a 32-byte hex id
+      ΓêÜ rejects upper-case hex in the e tag (NIP-01 requires lowercase)
+      ΓêÜ rejects a non-integer k tag
+      ΓêÜ rejects a negative k tag
+      ΓêÜ rejects when multiple k tags are present
+      ΓêÜ rejects when the OTS digest does not match the e-tagged event id
+      ΓêÜ rejects when the content is not a valid OTS proof
+      ΓêÜ rejects when the content is empty
+
+  VanishEventStrategy
+    ΓêÜ deletes all events for pubkey except kind 62 events and creates the vanish event
+    ΓêÜ does not broadcast the vanish event
+    ΓêÜ returns duplicate OK if the event already exists
+
+  getHealthRequestHandler
+    ΓêÜ responds with OK plain text and calls next
+
+  getPrivacyRequestHandler
+    ΓêÜ loads the privacy.html template
+    ΓêÜ responds with 200 and text/html content-type
+    ΓêÜ HTML-escapes the relay name
+    ΓêÜ injects the CSP nonce
+    ΓêÜ calls next with error when template read fails
+
+  getTermsRequestHandler
+    ΓêÜ loads the terms.html template
+    ΓêÜ responds with 200 and text/html content-type
+    ΓêÜ HTML-escapes the relay name
+    ΓêÜ injects the CSP nonce
+    ΓêÜ calls next with error when template read fails
+
+  rootRequestHandler
+    when Accept: application/nostr+json
+      ΓêÜ responds with 200 and application/nostr+json content-type
+      ΓêÜ sets required NIP-11 CORS headers
+      ΓêÜ includes the relay name in the response
+      ΓêÜ does not render the HTML template
+      ΓêÜ includes optional NIP-11 fields when configured
+      ΓêÜ does not include optional NIP-11 fields when not configured
+      ΓêÜ includes NIP-11 limitation created_at and default_limit fields
+      ΓêÜ sets limitation.restricted_writes based on active write restrictions
+    when serving HTML
+      ΓêÜ loads the index.html template
+      ΓêÜ responds with 200 and text/html content-type
+      ΓêÜ HTML-escapes the relay name
+      ΓêÜ HTML-escapes the relay URL
+      ΓêÜ injects the CSP nonce
+      ΓêÜ shows amount in sats when admission fee is enabled
+      ΓêÜ shows 0 amount when payments are disabled
+      ΓêÜ sets payments_section_class to d-none when fee is disabled
+      ΓêÜ sets payments_section_class to empty string when fee is enabled
+      ΓêÜ calls next with error when template read fails
+
+  SubscribeMessageHandler
+    #handleMessage
+      ΓêÜ emits notice message if subscription is rejected
+      ΓêÜ emits subscribe event if subscription is accepted
+    #fetchAndSend
+      ΓêÜ does not send event if client is not subscribed to it
+      ΓêÜ sends event if client is subscribed
+      ΓêÜ does not send expired events
+      ΓêÜ sends event if expiration is in the future
+      ΓêÜ sends EOSE
+      ΓêÜ ends event stream if error occurs
+      ΓêÜ destroys event stream if aborted
+    .isClientSubscribedToEvent
+      ΓêÜ returns false if event matches no filter
+      ΓêÜ returns true if event matches filter
+    #canSubscribe
+      ΓêÜ returns undefined if subscription & filter count are allowed
+      ΓêÜ returns undefined if max subscription limit is disabled
+      ΓêÜ returns undefined if filters limit is disabled
+      ΓêÜ returns reason if client is sending a duplicate subscription
+      ΓêÜ returns reason if client subscriptions exceed limits
+      ΓêÜ returns reason if filter count exceeds limit
+      ΓêÜ returns reason if subscription id is too long
+      ΓêÜ returns undefined if subscription id matches max length
+
+  UnsubscribeMessageHandler
+    handleMessage()
+      ΓêÜ emits unsubscribe event with subscription Id
+
+  parseCliArgs (import-events)
+    ΓêÜ parses a basic file argument with default batch size
+    ΓêÜ parses --batch-size with spaced value
+    ΓêÜ parses --batch-size with inline value
+    ΓêÜ returns help mode when --help is present
+    ΓêÜ throws when input file path is missing
+    ΓêÜ throws on unknown options including short options
+    ΓêÜ throws when --batch-size value is missing
+    ΓêÜ throws when --batch-size is invalid
+    ΓêÜ throws when extra positional arguments are provided
+
+  migrations/20260420_120000_add_hot_path_indexes
+    ΓêÜ opts out of knex transaction so CREATE INDEX CONCURRENTLY can run
+    ΓêÜ exports up and down
+
+  EventRepository
+    .findByFilters
+      ΓêÜ returns a function with stream and then
+      ΓêÜ throws error if filters is empty
+      1 filter
+        ΓêÜ selects all events
+        authors
+          ΓêÜ selects no events given empty list of authors
+          ΓêÜ selects events by one author
+          ΓêÜ selects events by two authors
+          ΓêÜ selects events by one author prefix (even length)
+          ΓêÜ selects events by one author prefix (odd length)
+          ΓêÜ selects events by two author prefix (first even, second odd)
+        ids
+          ΓêÜ selects no events given empty list of ids
+          ΓêÜ selects events by one id
+          ΓêÜ selects events by two ids
+          ΓêÜ selects events by one id prefix (even length)
+          ΓêÜ selects events by one id prefix (odd length)
+          ΓêÜ selects events by two id prefix (first even, second odd)
+        kinds
+          ΓêÜ selects no events given empty list of kinds
+          ΓêÜ selects events by one kind
+          ΓêÜ selects events by two kinds
+        since
+          ΓêÜ selects events since given timestamp
+        until
+          ΓêÜ selects events until given timestamp
+        limit
+          ΓêÜ selects 1000 events
+        #e
+          ΓêÜ selects no events given empty list of #e tags
+          ΓêÜ selects events by one #e tag
+          ΓêÜ selects events by two #e tag
+        #p
+          ΓêÜ selects no events given empty list of #p tags
+          ΓêÜ selects events by one #p tag
+          ΓêÜ selects events by two #p tag
+        #r
+          ΓêÜ selects no events given empty list of #r tags
+          ΓêÜ selects events by one #r tag
+          ΓêÜ selects events by two #r tag
+      2 filters
+        ΓêÜ selects union of both filters
+      many filters
+        ΓêÜ selects union of all filters
+    .countByFilters
+      ΓêÜ throws error if filters is empty
+      ΓêÜ returns count value from query result
+      ΓêÜ uses countDistinct on event_id to avoid duplicate counts
+      ΓêÜ builds union query when there are multiple filters
+      ΓêÜ joins tags table for generic tag filters
+      ΓêÜ applies limit ordering when a filter includes limit
+      ΓêÜ filters out deleted and expired events
+    .create
+      ΓêÜ calls insert with given event and returns row count
+    .insert
+      ΓêÜ inserts event if there is no conflict
+    deleteByPubkeyAndIds
+      ΓêÜ marks event as deleted by pubkey & event_id if not deleted
+    upsert
+      ΓêÜ replaces event based on event_pubkey and event_kind
+      ΓêÜ replaces event based on event_pubkey, event_kind and event_deduplication
+    upsertMany
+      ΓêÜ returns 0 when no events are provided
+      ΓêÜ applies NIP-01 tie-breaker in batch conflict condition
+
+  InvoiceRepository
+    .confirmInvoice
+      ΓêÜ calls raw with confirm_invoice stored procedure and correct arguments
+{"level":50,"time":1767225600000,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:invoice-repository","err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\repositories\\invoice-repository.spec.ts:81:23)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice. Reason: Error: connection refused\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\repositories\\invoice-repository.spec.ts:81:23)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ re-throws when raw call rejects
+    .findById
+      ΓêÜ returns undefined when no invoice is found
+      ΓêÜ returns a transformed Invoice when found
+      ΓêÜ queries invoices table by id
+    .findPendingInvoices
+      ΓêÜ returns empty array when no pending invoices exist
+      ΓêÜ returns transformed invoices when pending invoices are found
+      ΓêÜ passes offset and limit to the query
+      ΓêÜ orders by created_at ascending
+      ΓêÜ filters by pending status
+    .updateStatus
+      ΓêÜ returns an object with then, catch, and toString
+      ΓêÜ generates UPDATE SQL targeting the invoices table
+      ΓêÜ includes the invoice id in the WHERE clause
+      ΓêÜ includes RETURNING * clause
+    .upsert
+      ΓêÜ returns an object with then, catch, and toString
+      ΓêÜ generates INSERT with on-conflict do update set SQL
+      ΓêÜ includes the invoice id when one is provided
+      ΓêÜ uses a generated UUID when no id is provided
+      ΓêÜ encodes pubkey as hex buffer in SQL
+      ΓêÜ includes all required invoice fields
+
+  UserRepository
+    .findByPubkey
+      ΓêÜ returns undefined when no user is found
+      ΓêÜ returns a transformed User when found
+      ΓêÜ queries users table with toBuffer-encoded pubkey
+    .upsert
+      ΓêÜ resolves with the row count from the DB response
+      ΓêÜ inserts into the users table
+      ΓêÜ encodes pubkey as a Buffer in the inserted row
+      ΓêÜ includes is_admitted and is_vanished in the inserted row
+      ΓêÜ defaults is_admitted and is_vanished to false when not provided
+      ΓêÜ conflicts on pubkey and omits pubkey from the merge set
+    .isVanished
+      ΓêÜ returns isVanished=false from existing user row
+      ΓêÜ returns isVanished=true from existing user row
+      ΓêÜ calls eventRepository when user row does not exist and returns vanish state
+      ΓêÜ hydrates vanish=false when eventRepository returns false
+    .setVanished
+      ΓêÜ returns an object with then, catch, and toString
+      ΓêÜ generates upsert SQL for vanish state
+      ΓêÜ encodes pubkey as hex buffer in SQL
+    .getBalanceByPubkey
+      ΓêÜ returns 0n when no user is found
+      ΓêÜ returns the user balance as BigInt when user is found
+      ΓêÜ queries users table selecting only balance field
+    .admitUser
+      ΓêÜ calls raw with admit_user stored procedure and correct arguments
+{"level":50,"time":1767225600000,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:user-repository","err":{"type":"Error","message":"admit failed","stack":"Error: admit failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\repositories\\user-repository.spec.ts:322:23)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to admit user. Reason: Error: admit failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\repositories\\user-repository.spec.ts:322:23)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ re-throws when raw call rejects
+
+  callbacks router
+    ΓêÜ parses form-urlencoded OpenNode callbacks (117ms)
+
+  NIP-01
+    validate event schema
+      ΓêÜ returns same event if event is valid
+      ΓêÜ returns error if unknown key is provided
+      id
+        ΓêÜ id must be a string
+        ΓêÜ id must only contain lowercase characters
+        ΓêÜ id must only contain hexadecimal characters
+        ΓêÜ id length must be 64 characters long
+        ΓêÜ id length must be 64 characters long
+        ΓêÜ id is not allowed to be empty
+        ΓêÜ id is required
+      pubkey
+        ΓêÜ pubkey must be a string
+        ΓêÜ pubkey must only contain lowercase characters
+        ΓêÜ pubkey must only contain hexadecimal characters
+        ΓêÜ pubkey length must be 64 characters long
+        ΓêÜ pubkey length must be 64 characters long
+        ΓêÜ pubkey is not allowed to be empty
+        ΓêÜ pubkey is required
+      created_at
+        ΓêÜ created_at contains an invalid value
+        ΓêÜ created_at must be a number
+        ΓêÜ created_at must be greater than or equal to 0
+        ΓêÜ created_at must be a multiple of 1
+        ΓêÜ created_at is required
+      kind
+        ΓêÜ kind must be a number
+        ΓêÜ kind must be greater than or equal to 0
+        ΓêÜ kind must be a multiple of 1
+        ΓêÜ kind is required
+      content
+        ΓêÜ content must be a string
+        ΓêÜ content is required
+      sig
+        ΓêÜ sig must be a string
+        ΓêÜ sig must only contain lowercase characters
+        ΓêÜ sig must only contain hexadecimal characters
+        ΓêÜ sig length must be 128 characters long
+        ΓêÜ sig length must be 128 characters long
+        ΓêÜ sig is not allowed to be empty
+        ΓêÜ sig is required
+      tags
+        ΓêÜ tags must be an array
+        ΓêÜ tags is required
+      tag
+        ΓêÜ tag must be an array
+      identifier
+        ΓêÜ identifier must be a string
+        ΓêÜ identifier is not allowed to be empty
+      value
+        ΓêÜ value must be a string
+
+  NIP-01
+    validate filter schema
+      ΓêÜ accepts NIP-22 comment threading filters for kind 1111
+      ΓêÜ accepts uppercase tag filters (#A-Z)
+      ΓêÜ returns same filter if filter is valid
+      ids
+        ΓêÜ ids must be an array
+      prefixOrId
+        ΓêÜ prefixOrId length must be less than or equal to 64 characters long
+        ΓêÜ prefixOrId must only contain hexadecimal characters
+        ΓêÜ prefixOrId is not allowed to be empty
+      authors
+        ΓêÜ authors must be an array
+      prefixOrAuthor
+        ΓêÜ prefixOrAuthor length must be less than or equal to 64 characters long
+        ΓêÜ prefixOrAuthor must only contain hexadecimal characters
+        ΓêÜ prefixOrAuthor is not allowed to be empty
+      kinds
+        ΓêÜ kinds must be an array
+      kind
+        ΓêÜ kind must be greater than or equal to 0
+        ΓêÜ kind must be a number
+        ΓêÜ kind must be a multiple of 1
+      since
+        ΓêÜ since contains an invalid value
+        ΓêÜ since must be a number
+        ΓêÜ since must be greater than or equal to 0
+        ΓêÜ since must be a multiple of 1
+      until
+        ΓêÜ until contains an invalid value
+        ΓêÜ until must be a number
+        ΓêÜ until must be greater than or equal to 0
+        ΓêÜ until must be a multiple of 1
+      limit
+        ΓêÜ limit must be a number
+        ΓêÜ limit must be greater than or equal to 0
+        ΓêÜ limit must be a multiple of 1
+      #e
+        ΓêÜ #e must be an array
+      #e[0]
+        ΓêÜ #e[0] length must be less than or equal to 1024 characters long
+        ΓêÜ #e[0] is not allowed to be empty
+      #p
+        ΓêÜ #p must be an array
+      #p[0]
+        ΓêÜ #p[0] length must be less than or equal to 1024 characters long
+        ΓêÜ #p[0] is not allowed to be empty
+      #r
+        ΓêÜ #r must be an array
+      #r[0]
+        ΓêÜ #r[0] length must be less than or equal to 1024 characters long
+        ΓêÜ #r[0] is not allowed to be empty
+
+  LNbits Callback Schema
+    lnbitsCallbackQuerySchema
+      ΓêÜ returns no error if hmac is valid
+      ΓêÜ returns error if hmac is missing
+      ΓêÜ returns error if hmac format is invalid
+    lnbitsCallbackBodySchema
+      ΓêÜ returns no error if payment_hash is valid
+      ΓêÜ returns error if payment_hash is not 64 chars hex
+
+  NIP-01
+    validateSchema
+      EVENT
+        ΓêÜ returns same message if valid
+      CLOSE
+        ΓêÜ returns same message if valid
+        ΓêÜ returns error if subscription ID is missing
+      REQ
+        ΓêÜ returns same message if valid
+        ΓêÜ returns error if subscription Id is missing
+        ΓêÜ returns error if filter is not an object
+        ΓêÜ returns error if filter is missing
+        ΓêÜ returns error if there are too many filters
+      COUNT
+        ΓêÜ returns same message if valid
+        ΓêÜ returns error if query ID is missing
+        ΓêÜ returns error if filter is missing
+        ΓêÜ returns error if filter is not an object
+        ΓêÜ returns error if there are too many filters
+
+  Nodeless Callback Schema
+    nodelessCallbackBodySchema
+      ΓêÜ returns no error if body is valid
+      ΓêÜ returns no error if body contains additional metadata
+      ΓêÜ returns error if uuid is missing
+      ΓêÜ returns error if metadata.requestId is not a valid pubkey
+
+  OpenNode Callback Schema
+    opennodeWebhookCallbackBodySchema
+      ΓêÜ returns no error if webhook body is valid
+      ΓêÜ returns error if hashed_order is missing
+      ΓêÜ returns error if status is not in accepted values
+    opennodeCallbackBodySchema
+      ΓêÜ returns no error if body is valid
+      ΓêÜ returns no error if body contains additional expected fields
+      ΓêÜ returns error if order_id is missing
+
+  Zebedee Callback Schema
+    zebedeeCallbackBodySchema
+      ΓêÜ returns no error if body is valid
+      ΓêÜ returns no error if body contains unknown additional fields
+      ΓêÜ returns error if internalId is not a valid pubkey
+
+  parseCliArgs (export-events)
+    ΓêÜ uses defaults when no args are provided
+    ΓêÜ returns help mode when --help is present
+    ΓêÜ parses output file without compression
+    ΓêÜ parses compression flags and explicit format
+    ΓêÜ parses inline --format value
+    ΓêÜ infers format from extension when compression is enabled
+    ΓêÜ defaults to gzip when compression is enabled and extension is unknown
+    ΓêÜ throws when --format is provided without --compress
+    ΓêÜ throws when --format is missing a value
+    ΓêÜ throws on unknown options
+    ΓêÜ throws on unexpected extra positional arguments
+
+  export metrics helpers
+    ΓêÜ formats bytes using binary units
+    ΓêÜ formats compression delta for smaller output
+    ΓêÜ formats compression delta for larger output
+    ΓêÜ returns undefined compression delta when raw bytes are zero
+    ΓêÜ calculates per-second rates safely
+
+  EventImportService
+    ΓêÜ imports valid events in batches and tracks skipped duplicates
+    ΓêÜ imports valid events from a readable stream
+    ΓêÜ counts malformed and invalid events as errors and keeps importing
+    ΓêÜ rejects when persistence returns an invalid insert count
+    ΓêÜ propagates persistence failures as import failures
+    ΓêÜ normalizes parameterized replaceable deduplication to first d tag value
+
+  MaintenanceService
+    clearOldEvents
+{"level":30,"time":1776808143565,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:maintenance-service","msg":"[Maintenance] Deleted events: deleted=4, expired=3, retained=3."}
+      ΓêÜ purges events when retention.maxDays is a positive number
+      ΓêÜ does not purge events when retention.maxDays is -1
+      ΓêÜ does not purge events when retention is not configured
+{"level":50,"time":1776808143569,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:maintenance-service","err":{"type":"Error","message":"DB Error","stack":"Error: DB Error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\maintenance-service.spec.ts:107:56)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to purge events. Reason: Error: DB Error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\maintenance-service.spec.ts:107:56)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ handles error during purge
+
+  PaymentsService
+    getPendingInvoices
+      ΓêÜ returns invoices from the repository with offset 0 and limit 10
+{"level":50,"time":1776808143575,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"db error","stack":"Error: db error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:127:53)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to get pending invoices. Error: db error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:127:53)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ re-throws repository errors
+    getInvoiceFromPaymentsProcessor
+      ΓêÜ passes a string invoice ID directly to the payments processor
+      ΓêÜ passes the full invoice object when it has a verifyURL
+      ΓêÜ passes invoice.id when the invoice has no verifyURL
+      ΓêÜ re-throws payments processor errors
+{"level":50,"time":1776808143584,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"processor error","stack":"Error: processor error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:164:44)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to get invoice from payments processor. Reason: Error: processor error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:164:44)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+    createInvoice
+      ΓêÜ upserts user, creates invoice via processor, persists, and returns the invoice
+{"level":50,"time":1776808143590,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"processor fail","stack":"Error: processor fail\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:207:47)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to create invoice: Error: processor fail\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:207:47)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rolls back the transaction and re-throws when the processor fails
+    updateInvoice
+      ΓêÜ delegates to invoiceRepository.updateStatus with id and status
+{"level":50,"time":1776808143597,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"update error","stack":"Error: update error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:232:46)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to update invoice. Reason: Error: update error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:232:46)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ re-throws repository errors
+    updateInvoiceStatus
+      ΓêÜ returns the updated invoice from the repository
+{"level":50,"time":1776808143605,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"update error","stack":"Error: update error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:256:46)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to update invoice. Reason: Error: update error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:256:46)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ re-throws repository errors
+    confirmInvoice
+{"level":50,"time":1776808143608,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"Invoice confirmation date is not set","stack":"Error: Invoice confirmation date is not set\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:137:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:289:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice. Reason: Error: Invoice confirmation date is not set\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:137:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:289:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ throws when confirmedAt is not set
+{"level":50,"time":1776808143612,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"Invoice is not complete: pending","stack":"Error: Invoice is not complete: pending\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:140:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:295:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice. Reason: Error: Invoice is not complete: pending\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:140:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:295:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ throws when status is not COMPLETED
+{"level":50,"time":1776808143615,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"Invoice paid amount is not set: undefined","stack":"Error: Invoice paid amount is not set: undefined\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:144:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:301:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice. Reason: Error: Invoice paid amount is not set: undefined\n    at PaymentsService.confirmInvoice (C:\\Users\\manoj\\nostream\\src\\services\\payments-service.ts:144:15)\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:301:17)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate._onImmediate (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ throws when amountPaid is not a bigint
+      ΓêÜ converts SATS to msats before comparing against the fee
+      ΓêÜ converts BTC to msats before comparing against the fee
+      ΓêÜ does not convert MSATS (uses amount directly)
+      ΓêÜ admits the user when the paid amount meets the admission fee
+      ΓêÜ does not admit the user when the paid amount is below the admission fee
+      ΓêÜ does not admit the user when there are no admission fee schedules
+      ΓêÜ falls back to an empty admission array when feeSchedules is missing
+      ΓêÜ ignores disabled fee schedules when computing the admission amount
+      ΓêÜ skips the fee for whitelisted pubkeys (exact match)
+      ΓêÜ applies the fee when pubkey is not an exact whitelist match (prefix alone is insufficient)
+{"level":50,"time":1776808143642,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"db error","stack":"Error: db error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:428:48)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to confirm invoice. Reason: Error: db error\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:428:48)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ rolls back the transaction and re-throws on error
+    sendInvoiceUpdateNotification
+      ΓêÜ throws when amountPaid is undefined
+      ΓêÜ converts MSATS to SATS in the notification content
+      ΓêÜ keeps SATS amount and unit unchanged
+      ΓêÜ persists and broadcasts the signed event
+{"level":50,"time":1776808143659,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:payments-service","err":{"type":"Error","message":"identify failed","stack":"Error: identify failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:480:62)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"},"msg":"Unable to send notification Error: identify failed\n    at Context.<anonymous> (C:\\Users\\manoj\\nostream\\test\\unit\\services\\payments-service.spec.ts:480:62)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:366:21)\n    at Test.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at Runner.runTest (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:719:10)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:842:12\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:634:14)\n    at C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:644:7\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:527:14)\n    at cbHookRun (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:592:7)\n    at done (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:310:5)\n    at callFn (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:389:7)\n    at Hook.Runnable.run (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runnable.js:354:5)\n    at next (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:551:10)\n    at Immediate.<anonymous> (C:\\Users\\manoj\\nostream\\node_modules\\mocha\\lib\\runner.js:612:5)\n    at processImmediate (node:internal/timers:485:21)"}
+      ΓêÜ does not throw when the pipeline fails
+
+  TorClient
+    isCompleteTorReply
+      ΓêÜ returns false for empty string
+      ΓêÜ returns false for partial reply without trailing CRLF
+      ΓêÜ returns true for a complete single-line 250 OK reply
+      ΓêÜ returns true for a complete single-line error reply
+      ΓêÜ returns true for a complete multi-line reply ending with 250 OK
+      ΓêÜ returns true for a multi-line ADD_ONION reply with PrivateKey
+      ΓêÜ returns false for incomplete multi-line reply (continuation only)
+      ΓêÜ returns false for buffer ending mid-line
+      ΓêÜ handles data block (250+) terminated by . then final 250 OK
+      ΓêÜ returns false for data block without terminating 250 OK
+    sendCommand
+      ΓêÜ resolves with full response on successful single-line 250 reply
+      ΓêÜ rejects when socket is not connected
+      ΓêÜ rejects on non-250 reply
+      ΓêÜ rejects on socket error during command
+      ΓêÜ buffers fragmented TCP chunks until multi-line reply is complete
+      ΓêÜ writes the command with CRLF to the socket
+      ΓêÜ removes data and error listeners after resolution
+      ΓêÜ removes data and error listeners after rejection
+    connect
+      ΓêÜ resolves when control port responds with 250
+      ΓêÜ rejects when control port responds with non-250
+      ΓêÜ rejects on socket error during connect
+      ΓêÜ sends AUTHENTICATE command with the configured password
+
+  onion
+    ΓêÜ config empty
+    ΓêÜ config set
+    ΓêÜ tor connect fail
+    ΓêÜ tor connect success
+    ΓêÜ add onion connect fail
+    ΓêÜ add onion fail
+{"level":30,"time":1776808143682,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:tor-client","msg":"saving private key to \\home\\node\\v3_onion_private_key"}
+domain: undefined
+    ΓêÜ add onion write fail
+domain: pubKey
+{"level":30,"time":1776808143686,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:tor-client","msg":"saving private key to \\home\\node\\v3_onion_private_key"}
+    ΓêÜ add onion success read fail
+domain: pubKey
+{"level":30,"time":1776808143687,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:tor-client","msg":"saving private key to \\home\\node\\v3_onion_private_key"}
+    ΓêÜ add onion success
+
+  compression utils
+    ΓêÜ parses format aliases
+    ΓêÜ throws when parsing an unsupported format
+    ΓêÜ detects compression from extension
+    ΓêÜ detects compression from magic header bytes
+    ΓêÜ computes default xz options and reserves one CPU core
+    ΓêÜ uses NOSTREAM_XZ_THREADS when provided
+    ΓêÜ clamps configured xz threads to available CPU cores
+    ΓêÜ uses NOSTREAM_XZ_PRESET when provided
+    ΓêÜ throws on invalid NOSTREAM_XZ_THREADS values
+    ΓêÜ throws on invalid NOSTREAM_XZ_PRESET values
+    ΓêÜ round-trips data with gzip streams (51ms)
+    ΓêÜ round-trips data with xz streams (69ms)
+    ΓêÜ passes data through unchanged when compression is disabled
+    ΓêÜ detects compressed files by header even without compressed extension
+    ΓêÜ falls back to extension-based detection when header is unavailable
+    ΓêÜ throws when extension and file header formats conflict
+    ΓêÜ fails to decompress invalid gzip payloads
+    ΓêÜ fails to decompress invalid xz payloads
+    ΓêÜ round-trips binary payloads across boundary sizes (141ms)
+
+  NIP-01
+    serializeEvent
+      ΓêÜ returns serialized event given a Nostr event
+    isEventMatchingFilter
+      ΓêÜ returns true if filter is empty
+      ids filter
+        ΓêÜ returns false if ids filter is empty
+        ΓêÜ returns true if ids filter contains event id
+        ΓêÜ returns false if ids filter does not contains event id
+        ΓêÜ returns true if ids with prefix matches event
+        ΓêÜ returns false if ids with prefix does not matches event
+      authors filter
+        ΓêÜ returns false if authors filter is empty
+        ΓêÜ returns true if authors filter contains event id
+        ΓêÜ returns false if authors filter does not contains event id
+        ΓêÜ returns true if authors with prefix matches event
+        ΓêÜ returns false if authors with prefix does not matches event
+      kinds filter
+        ΓêÜ returns false if kinds filter is empty
+        ΓêÜ returns true if kinds filter contains event id
+        ΓêÜ returns false if kinds filter does not contains event id
+      since filter
+        ΓêÜ returns true if since < event created at
+        ΓêÜ returns true if since = event created at
+        ΓêÜ returns false if since > event created at
+      until filter
+        ΓêÜ returns false if until < event created at
+        ΓêÜ returns true if until = event created at
+        ΓêÜ returns true if until > event created at
+      #e filter
+        ΓêÜ returns false if #e filter is empty
+        ΓêÜ returns true if #e filter contains e tag in event
+        ΓêÜ returns false if #e filter does not contain tag in event
+      #p filter
+        ΓêÜ returns false if #p filter is empty
+        ΓêÜ returns true if #p filter contains p tag in event
+        ΓêÜ returns false if #p filter does not contain tag in event
+    isEventSignatureValid
+      ΓêÜ resolves with true if event has a valid signature
+      ΓêÜ resolves with false if event has a valid signature
+    isEventIdValid
+      ΓêÜ resolves with true if event id is valid
+      ΓêÜ resolves with false if event id is not valid
+
+  NIP-12
+    #r filter
+      ΓêÜ returns false if #r filter is empty
+      ΓêÜ returns true if #r filter contains p tag in event
+      ΓêÜ returns false if #r filter does not contain tag in event
+
+  NIP-16
+    isReplaceableEvent
+      ΓêÜ returns true if event is replaceable
+      ΓêÜ returns true if event is set_metadata
+      ΓêÜ returns true if event is contact_list
+      ΓêÜ returns false if event is not replaceable
+    isEphemeralEvent
+      ΓêÜ returns true if event is replaceable
+      ΓêÜ returns false if event is not replaceable
+
+  NIP-17
+    isGiftWrapEvent
+      ΓêÜ returns true for kind 1059
+      ΓêÜ returns false for any other kind
+    isSealEvent
+      ΓêÜ returns true for kind 13
+      ΓêÜ returns false for any other kind
+    isDirectMessageEvent
+      ΓêÜ returns true for kind 14
+      ΓêÜ returns false for kind 4 (legacy NIP-04 DM)
+      ΓêÜ returns false for any other kind
+    isFileMessageEvent
+      ΓêÜ returns true for kind 15
+      ΓêÜ returns false for any other kind
+
+  NIP-09
+    isDeleteEvent
+      ΓêÜ returns true if event is kind 5
+      ΓêÜ returns false if event is not kind 5
+
+  NIP-62
+    isRequestToVanishEvent
+      ΓêÜ returns true if event is kind 62
+      ΓêÜ returns false if event is not kind 62
+      ΓêÜ returns true when event contains the relay URL
+      ΓêÜ returns true when event contains ALL_RELAYS
+      ΓêÜ returns false when relay tag does not match
+      ΓêÜ returns false when there are no relay tags
+      ΓêÜ returns false when relay URL is provided for non-kind-62 event
+
+  NIP-33
+    isParameterizedReplaceableEvent
+      ΓêÜ returns true if event is a parameterized replaceable event
+      ΓêÜ returns false if event is a parameterized replaceable event
+
+  NIP-40
+    getEventExpiration
+      ΓêÜ returns true if expiration is a safe integer
+      ΓêÜ returns false if event does not have expiration tag
+      ΓêÜ returns false if expiration is unsafe integer
+      ΓêÜ returns false if expiration is malformed data
+    isExpiredEvent
+      ΓêÜ returns false if event does not have tags
+      ΓêÜ returns false if event does not have expiration tags
+      ΓêÜ returns true if event is expired
+
+  EWMARateLimiter
+    calculateEWMA
+      ΓêÜ returns 1 on first request with no history
+      ΓêÜ increases rate on burst requests with no time gap
+      ΓêÜ decays rate after time gap
+      ΓêÜ rate approaches 1 after very long inactivity
+    hit
+      ΓêÜ returns false on first request
+      ΓêÜ returns true when rate limit exceeded
+
+  escapeHtml
+    ΓêÜ escapes ampersands
+    ΓêÜ escapes less-than
+    ΓêÜ escapes greater-than
+    ΓêÜ escapes double quotes
+    ΓêÜ escapes single quotes
+    ΓêÜ escapes all special characters together
+    ΓêÜ returns plain strings unchanged
+    ΓêÜ returns empty string unchanged
+
+  safeJsonForScript
+    ΓêÜ serializes a string as a quoted JSON value
+    ΓêÜ serializes a number
+    ΓêÜ serializes null
+    ΓêÜ serializes an object
+    ΓêÜ replaces < with \u003C to prevent </script> injection
+    ΓêÜ produces valid JSON after escaping <
+
+  getRemoteAddress
+{"level":40,"time":1776808144031,"pid":19064,"hostname":"LAPTOP-TD06F4CQ","scope":"primary:http-utils","msg":"WARNING: Setting network.remote_ip_header is deprecated and will be removed in a future version.\n        Use network.remoteIpHeader instead."}
+    ΓêÜ returns address using network.remote_ip_address when set
+    ΓêÜ returns address using network.remoteIpAddress when set
+    ΓêÜ returns socket address when proxy is not trusted
+    ΓêÜ normalizes ipv4-mapped trusted proxy addresses
+    ΓêÜ returns address from socket when header is unset
+    ΓêÜ returns first address when forwarded header is an array
+
+  createNotice
+    ΓêÜ returns a notice message
+
+  createOutgoingEventMessage
+    ΓêÜ returns an event message
+
+  createEndOfStoredEventsNoticeMessage
+    ΓêÜ returns a EOSE message
+
+  createCommandResult
+    ΓêÜ returns an OK message with success=true and a reason
+    ΓêÜ returns an OK message with success=false and a rejection reason
+
+  createSubscriptionMessage
+    ΓêÜ returns a REQ message with a single filter
+    ΓêÜ returns a REQ message with multiple filters
+
+  createRelayedEventMessage
+    ΓêÜ returns an EVENT message without secret when no secret is provided
+    ΓêÜ returns an EVENT message with secret appended when a secret is provided
+
+  OtsReader
+    ΓêÜ readBytes rejects a negative length
+    ΓêÜ readVarUint rejects values above Number.MAX_SAFE_INTEGER
+
+  NIP-03 ΓÇö OpenTimestamps
+    parseOtsFile
+      ΓêÜ parses a minimal proof with a single bitcoin attestation
+      ΓêÜ parses a proof with ops that wrap an attestation
+      ΓêÜ parses a proof with multiple attestations (pending + bitcoin)
+      ΓêÜ classifies litecoin and unknown attestations correctly
+      ΓêÜ rejects a file without the OpenTimestamps magic header
+      ΓêÜ rejects an unsupported file hash op
+      ΓêÜ rejects an unsupported ots file version
+      ΓêÜ rejects truncated proofs without crashing
+      ΓêÜ rejects proofs with trailing garbage
+      ΓêÜ refuses files larger than the configured maximum
+      ΓêÜ returns a structured failure on empty input instead of throwing
+      ΓêÜ rejects non-Buffer input the same as empty (typed array is not a Buffer)
+      ΓêÜ parses sha1 file digest (20-byte) proofs
+      ΓêÜ parses ripemd160 file digest proofs
+      ΓêÜ parses keccak256 file digest proofs
+      ΓêÜ parses prepend binary op in the commitment tree
+      ΓêÜ parses reverse and hexlify unary ops wrapping an attestation
+      ΓêÜ classifies ethereum block header attestations
+      ΓêÜ treats a truncated bitcoin attestation payload as height-less
+      ΓêÜ rejects unknown commitment op tags
+      ΓêÜ rejects varints that overflow the LEB128 decoder
+      ΓêÜ rejects varbytes length fields above the relay maximum
+      ΓêÜ rejects commitment trees deeper than the recursion cap
+    validateOtsProof
+      ΓêÜ accepts a well-formed bitcoin-anchored proof whose digest matches
+      ΓêÜ accepts uppercase hex target ids and normalizes them
+      ΓêÜ rejects empty content
+      ΓêÜ rejects non-base64 content
+      ΓêÜ rejects proofs whose digest does not match the event id
+      ΓêÜ rejects target ids that are not 32-byte hex
+      ΓêÜ rejects a non-string target event id
+      ΓêÜ rejects proofs without any bitcoin attestation
+      ΓêÜ rejects a proof digested with a non-sha256 hash op
+
+  NIP-05 utils
+    parseNip05Identifier
+      ΓêÜ returns parsed identifier for valid input
+      ΓêÜ handles underscores in local part
+      ΓêÜ lowercases domain and local part
+      ΓêÜ handles subdomains
+      ΓêÜ returns undefined for empty string
+      ΓêÜ returns undefined for null input
+      ΓêÜ returns undefined for non-string input
+      ΓêÜ returns undefined for missing @
+      ΓêÜ returns undefined for missing local part
+      ΓêÜ returns undefined for missing domain
+      ΓêÜ returns undefined for invalid domain
+      ΓêÜ returns undefined for domain without TLD
+    extractNip05FromEvent
+      ΓêÜ extracts nip05 from kind 0 event
+      ΓêÜ returns undefined for non-kind-0 event
+      ΓêÜ returns undefined when nip05 is not in content
+      ΓêÜ returns undefined for invalid JSON content
+      ΓêÜ returns undefined when nip05 is empty string
+      ΓêÜ returns undefined when nip05 is not a string
+    isDomainAllowed
+      ΓêÜ returns true with no whitelist or blacklist
+      ΓêÜ returns true with empty whitelist and blacklist
+      ΓêÜ returns true if domain is in whitelist
+      ΓêÜ returns false if domain is not in whitelist
+      ΓêÜ returns false if domain is in blacklist
+      ΓêÜ returns true if domain is not in blacklist
+      ΓêÜ is case-insensitive
+      ΓêÜ blacklist takes precedence over whitelist
+    verifyNip05Identifier
+      ΓêÜ returns invalid for unparseable identifier (no network call)
+      ΓêÜ sends request with capped redirects and body sizes
+      ΓêÜ returns verified when response pubkey matches
+      ΓêÜ returns mismatch when name is not present in response
+      ΓêÜ returns mismatch when pubkey does not match
+      ΓêÜ returns invalid when response is not a JSON object
+      ΓêÜ returns invalid when names is not an object
+      ΓêÜ returns invalid when a pubkey in names is not 64-char hex
+      ΓêÜ returns error on network/timeout failure
+      beforeRedirect SSRF guard
+        ΓêÜ allows https redirects to public hostnames
+        ΓêÜ rejects http redirects
+        ΓêÜ rejects redirects to loopback literal
+        ΓêÜ rejects redirects to RFC1918 private ranges
+        ΓêÜ rejects redirects to link-local addresses
+        ΓêÜ rejects redirects to localhost hostname
+        ΓêÜ rejects redirects to IPv6 literals
+
+  NIP-44
+    getConversationKey
+      ΓêÜ derives the correct conversation key from sec1 and pub2
+      ΓêÜ is symmetric: conv(a, B) == conv(b, A)
+      ΓêÜ produces different keys for different key pairs
+    nip44Encrypt
+      ΓêÜ produces the canonical payload from the NIP-44 spec test vector
+      ΓêÜ produces a valid base64 string starting with version byte 0x02
+      ΓêÜ produces different ciphertexts for the same plaintext (random nonce)
+      ΓêÜ throws for empty plaintext
+      ΓêÜ throws for plaintext exceeding 65535 bytes
+    nip44Decrypt
+      ΓêÜ decrypts the canonical NIP-44 spec test vector
+      ΓêÜ round-trips any plaintext through encrypt then decrypt
+      ΓêÜ works with the symmetric key (recipient decrypts sender message)
+      ΓêÜ throws when MAC is tampered
+      ΓêÜ throws for payload starting with # (unsupported future version)
+      ΓêÜ throws for payload that is too short
+      ΓêÜ throws for wrong conversation key
+    validateNip44Payload
+      ΓêÜ returns undefined for a valid NIP-44 v2 payload
+      ΓêÜ returns undefined for a freshly encrypted payload
+      ΓêÜ returns error string for payload starting with #
+      ΓêÜ returns error string for empty string
+      ΓêÜ returns error string for payload that is too short
+      ΓêÜ returns error string for payload that is too long
+      ΓêÜ returns error string when version byte is not 0x02
+    padding length (calc_padded_len)
+      ΓêÜ pads 1 bytes to 32 bytes
+      ΓêÜ pads 32 bytes to 32 bytes
+      ΓêÜ pads 33 bytes to 64 bytes
+      ΓêÜ pads 64 bytes to 64 bytes
+      ΓêÜ pads 65 bytes to 96 bytes
+      ΓêÜ pads 100 bytes to 128 bytes
+      ΓêÜ pads 256 bytes to 256 bytes
+      ΓêÜ pads 257 bytes to 320 bytes
+      ΓêÜ pads 512 bytes to 512 bytes
+      ΓêÜ pads 1024 bytes to 1024 bytes
+
+  getLeadingZeroBits()
+    ΓêÜ returns 0 given 80
+    ΓêÜ returns 1 given 40
+    ΓêÜ returns 2 given 20
+    ΓêÜ returns 3 given 10
+    ΓêÜ returns 4 given 08
+    ΓêÜ returns 5 given 04
+    ΓêÜ returns 6 given 02
+    ΓêÜ returns 7 given 01
+    ΓêÜ returns 8 given 0080
+    ΓêÜ returns 9 given 0040
+    ΓêÜ returns 10 given 0020
+    ΓêÜ returns 11 given 0010
+    ΓêÜ returns 12 given 0008
+    ΓêÜ returns 13 given 0004
+    ΓêÜ returns 14 given 0002
+    ΓêÜ returns 15 given 0001
+    ΓêÜ returns 16 given 0000
+
+  SettingsStatic
+    .getSettingsFilePath
+      ΓêÜ returns string ending with .nostr/ by default
+      ΓêÜ returns path begins with user's home dir by default
+      ΓêÜ returns path with NOSTR_CONFIG_DIR if set
+    .getDefaultSettingsFilePath
+      ΓêÜ returns string ending with settings.json by default
+      ΓêÜ returns path begins with user's home dir by default
+    .loadAndParseYamlFile
+      ΓêÜ loads and parses yaml file from given path
+    .loadAndParseJsonFile
+      ΓêÜ loads and parses json file from given path
+    .settingsFileType
+      ΓêÜ gets file type by looking for settings file in config dir
+    .loadSettings
+      ΓêÜ loads settings from given path
+    .createSettings
+      ΓêÜ creates settings from defaults if settings file is missing
+      ΓêÜ returns default settings if saving settings file throws
+      ΓêÜ loads settings from file if settings file exists
+      ΓêÜ returns cached settings if set
+    .saveSettings
+      ΓêÜ saves settings to given path
+
+  SlidingWindowRateLimiter
+    ΓêÜ returns true if rate limited
+    ΓêÜ returns false if not rate limited
+
+  streamMap
+    ΓêÜ transforms chunk with given function
+
+  streamEach
+    ΓêÜ calls given function for each value in stream
+
+  streamEnd
+    ΓêÜ calls given function for each value in stream
+
+  streamFilter
+    ΓêÜ passes elements that pass the given predicate downstream
+
+  getTemplate
+    ΓêÜ returns the file content
+    ΓêÜ reads the file on every call in non-production mode
+    ΓêÜ propagates errors thrown by readFileSync
+
+  toJSON
+    ΓêÜ returns given value JSON stringified
+
+  toBuffer
+    ΓêÜ returns buffer given a hex string
+
+  fromBuffer
+    ΓêÜ returns given value JSON stringified
+
+  attemptValidation
+    ΓêÜ returns value if given value matches schema
+    ΓêÜ throws error if given value does not match schema
+
+  validateSchema
+    ΓêÜ returns value property with given value if it matches schema
+    ΓêÜ returns error property with ZodError if given value does not match schema
+
+
+  1037 passing (3s)
+
+

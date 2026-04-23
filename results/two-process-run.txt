@@ -1,0 +1,44 @@
+﻿================================================================================
+ SoB 2026 - Nostream - Project 1 competency test - two-process run (PowerShell)
+================================================================================
+ host      : LAPTOP-TD06F4CQ
+ os        : Microsoft Windows NT 10.0.26100.0
+ node      : v22.16.0
+ session   : poc-959211
+ captured  : 2026-04-22 03:20:32 +05:30
+ params    : count=5  interval=500ms  receiver-deadline=6000ms
+
+--------------------------------------------------------------------------------
+ RECEIVER  (terminal 1)  --  npx tsx poc-multicast.ts --role=receiver --session-tag=poc-959211 --deadline-ms=6000
+--------------------------------------------------------------------------------
+
+[main.start]  role=receiver  group=239.19.88.1  port=9797  ttl=1  sessionTag=poc-959211  pid=35048  node=v22.16.0
+[bind.ok]  group=239.19.88.1  port=9797  ttl=1
+[receiver.ready]  deadlineMs=6000
+[recv]  from=172.30.80.1:9797  id=250a0d6b1bae061f  kind=1  tags=[["s","poc-959211"],["t","sob2026"],["t","nostream"]]  content=SoB 2026 - Nostream P1 competency test - seq=1
+[recv]  from=172.30.80.1:9797  id=6f283ea5e34952ce  kind=1  tags=[["s","poc-959211"],["t","sob2026"],["t","nostream"]]  content=SoB 2026 - Nostream P1 competency test - seq=2
+[recv]  from=172.30.80.1:9797  id=6069c0f08fa7ea16  kind=1  tags=[["s","poc-959211"],["t","sob2026"],["t","nostream"]]  content=SoB 2026 - Nostream P1 competency test - seq=3
+[recv]  from=172.30.80.1:9797  id=4fe9e81952b24682  kind=1  tags=[["s","poc-959211"],["t","sob2026"],["t","nostream"]]  content=SoB 2026 - Nostream P1 competency test - seq=4
+[recv]  from=172.30.80.1:9797  id=45387ef87647bd26  kind=1  tags=[["s","poc-959211"],["t","sob2026"],["t","nostream"]]  content=SoB 2026 - Nostream P1 competency test - seq=5
+[receiver.done]  stats={"sent":0,"received":5,"droppedMalformed":0,"droppedDuplicate":0,"droppedOtherSession":0,"bytesSent":0,"bytesReceived":2215}
+
+
+--------------------------------------------------------------------------------
+ SENDER    (terminal 2)  --  npx tsx poc-multicast.ts --role=sender --session-tag=poc-959211 --count=5 --interval-ms=500
+--------------------------------------------------------------------------------
+
+[main.start]  role=sender  group=239.19.88.1  port=9797  ttl=1  sessionTag=poc-959211  pid=6196  node=v22.16.0
+[bind.ok]  group=239.19.88.1  port=9797  ttl=1
+[sender.start]  intervalMs=500  count=5
+[send]  seq=1  id=250a0d6b1bae061f  bytes=443
+[recv]  from=172.30.80.1:9797  id=250a0d6b1bae061f  kind=1
+[send]  seq=2  id=6f283ea5e34952ce  bytes=443
+[recv]  from=172.30.80.1:9797  id=6f283ea5e34952ce  kind=1
+[send]  seq=3  id=6069c0f08fa7ea16  bytes=443
+[recv]  from=172.30.80.1:9797  id=6069c0f08fa7ea16  kind=1
+[send]  seq=4  id=4fe9e81952b24682  bytes=443
+[recv]  from=172.30.80.1:9797  id=4fe9e81952b24682  kind=1
+[send]  seq=5  id=45387ef87647bd26  bytes=443
+[recv]  from=172.30.80.1:9797  id=45387ef87647bd26  kind=1
+[sender.done]  emitted=5  stats={"sent":5,"received":5,"droppedMalformed":0,"droppedDuplicate":0,"droppedOtherSession":0,"bytesSent":2215,"bytesReceived":2215}
+

@@ -1,0 +1,6 @@
+# Evidence from running the PoC locally goes here:
+#   - loopback-run.txt      : stdout of `npm run loopback`
+#   - two-process-run.txt   : stdout of sender + receiver (paste from two terminals)
+#   - screenshot.png        : (optional) two-terminal screenshot for the proposal submission
+#   - nostream-tests.txt    : captured `npm run test:unit` run on the cameri/nostream fork
+#                             (satisfies the "Set up a local Nostream development environment" bullet)

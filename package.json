@@ -1,0 +1,35 @@
+{
+  "name": "nostream-multicast-poc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Summer of Bitcoin 2026 · Nostream · Project 1 (Local-First Sync & Performance Engine) — Competency Test. Standalone Node.js dgram multicast PoC that broadcasts a dummy Nostr event on 239.19.88.1:9797 with Notedeck-compatible `u32 BE length || UTF-8 JSON` framing and verifies self-loopback.",
+  "keywords": [
+    "nostr",
+    "nostream",
+    "multicast",
+    "udp",
+    "dgram",
+    "notedeck",
+    "summer-of-bitcoin",
+    "sob2026"
+  ],
+  "author": "Aryan Gautam <archief117@gmail.com> (https://github.com/archief2910)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "loopback": "tsx poc-multicast.ts --role=loopback",
+    "sender": "tsx poc-multicast.ts --role=sender",
+    "receiver": "tsx poc-multicast.ts --role=receiver",
+    "selftest": "tsx poc-multicast.ts --role=selftest",
+    "typecheck": "tsc --noEmit",
+    "help": "tsx poc-multicast.ts --help",
+    "test": "npm run typecheck && npm run selftest && npm run loopback"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.0"
+  }
+}
