@@ -9,7 +9,7 @@ Mentor: Ricardo Arturo Cabral · Project: *Local-First Sync & Performance Engine
 
 ---
 
-## 1. The prompt (verbatim from the SoB 2026 project brief)
+## 1. Description
 
 > - Set up a local Nostream development environment.
 > - Write a standalone Node.js script using the `dgram` module that binds to a multicast group, broadcasts a dummy Nostr event as a JSON payload over UDP, and successfully receives and parses its own broadcast.
@@ -116,7 +116,7 @@ All five event IDs observed by the receiver match (in order) the IDs printed by 
 
 ---
 
-## 6. Nostream dev environment proof (first prompt bullet)
+## 6. Nostream dev environment proof 
 
 To satisfy the "set up a local Nostream development environment" bullet I installed the project, ran its full unit suite, and contributed four merged-scope PRs against the upstream repository before writing this PoC:
 
@@ -143,7 +143,7 @@ The captured run of `npx mocha 'test/**/*.spec.ts'` on this machine is saved und
 
 ---
 
-## 7. Architecture (this file, in one glance)
+## 7. Architecture 
 
 ```
 poc-multicast.ts
@@ -162,20 +162,6 @@ poc-multicast.ts
 ├── Section 12  main              (single exit path; every branch returns ExitCode)
 └── Section 13  entry point       (unhandled-rejection guard; converts code -> process.exit)
 ```
-
-Key production-shaped choices:
-
-- **Strict TypeScript** — `tsc --noEmit` passes with `strict: true`; no `any`; every public function has JSDoc.
-- **No runtime deps** — only Node built-ins (`node:dgram`, `node:crypto`, `node:util`, `node:assert`). `tsx` and `typescript` are `devDependencies` only.
-- **Single exit path** — every role runner returns an `ExitCode`; `main()` is the *only* code site that calls `process.exit()`.
-- **Graceful shutdown** — `AbortController` signal is respected by every runner; `SeenIdCache` rejoin timer and socket are closed in a `finally` block.
-- **DoS defence on the wire** — `unframe()` rejects length prefixes that exceed `MAX_FRAME_BYTES`, so a malicious peer cannot force large allocations.
-- **Session filtering** — every dummy event carries an `["s", "<uuid>"]` tag; `loopback`/`receiver` drop frames from other sessions in `--strict` mode, so parallel PoC runs on the same LAN cannot cross-contaminate.
-- **Loop prevention primitive** — `SeenIdCache` is bounded and FIFO-evicting; this is the exact data-structure promised for the production `MulticastAdapter`'s dedup in proposal Section 8.5 / FR-5.
-- **Parity with Notedeck rejoin** — `MulticastTransport` schedules `dropMembership` + `addMembership` every 200 s, matching Notedeck's `multicast.rs`.
-- **Structured logging** — `--json` emits one JSON record per log line (parseable by `jq` / CloudWatch / Loki); default human mode writes `key=value` pairs.
-- **Built-in test harness** — `--role=selftest` runs 13 `node:assert` cases against the pure functions. Zero external test framework. Adding assertions is one array entry.
-
 ---
 
 ## 8. Troubleshooting
@@ -189,7 +175,7 @@ Key production-shaped choices:
 
 ---
 
-## 9. Design trade-offs (for the mentor)
+## 9. Design trade-offs 
 
 - **Why 239.19.88.1?** Chosen by Notedeck for Nostr-over-LAN gossip. The `239.0.0.0/8` block is RFC 5771 *administratively-scoped* — safe to use without a global allocation.
 - **Why `u32 BE` length?** Matches Notedeck exactly. A smaller prefix (`u16`) would cap payloads at 65 KB; `u32` leaves headroom for future non-event wire types (e.g. NIP-77 NEG-MSG fragments) without a framing revision.
