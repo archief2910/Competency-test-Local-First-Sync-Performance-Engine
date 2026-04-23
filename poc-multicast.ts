@@ -16,7 +16,7 @@
  *
  * Non-goals
  * ---------
- *  - Real Nostr signature verification (the prompt explicitly says "dummy" event).
+ *  - Real Nostr signature verification .
  *  - Cross-machine NAT traversal (multicast is link-local by TTL=1 — on purpose).
  *  - Fragmentation of oversized frames (UDP datagrams > 65 KB are rejected at
  *    frame encode time so the test stays deterministic).
@@ -52,7 +52,7 @@ import { parseArgs } from 'node:util'
 import { strict as assert } from 'node:assert'
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION 1 · Wire constants (match Notedeck multicast.rs — do NOT change casually)
+// SECTION 1 · Wire constants 
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const DEFAULT_GROUP = '239.19.88.1' // administratively-scoped IPv4 (RFC 5771)
